@@ -56,12 +56,14 @@ public class Game {
 	 * @param index indice dans le tableau des joueurs du joueur à renvoyer
 	 */
 	public Player getPlayer(int index) {
+		return players[index];
 	}
 	
 	/**
 	 * Renvoie le nombre de joueurs participant à la partie
 	 */
 	public int numberOfPlayers() {
+		return players.length;
 	}
 	
 	/**
@@ -69,6 +71,11 @@ public class Game {
 	 * joueurs, ou -1 si le joueur n'est pas dans le tableau.
 	 */
 	private int indexOfPlayer(Player p) {
+		int i = players.length - 1;
+		while (i > -1 && players[i] != p) {
+			i--;
+		}
+		return i;
 	}
 	
 	/**
@@ -84,6 +91,17 @@ public class Game {
 	 * premier).
 	 */
 	public List<Player> otherPlayers(Player p) {
+		int i = indexOfPlayer(p) + 1;
+		List<Player> result = new ArrayList<Player>();
+		while (result.size() < players.length - 1) {
+			if (i < players.length) {
+				result.add(players[i]);
+				i++;
+			} else {
+				i = 0;
+			}
+		}
+		return result;
 	}
 	
 	/**
