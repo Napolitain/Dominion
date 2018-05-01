@@ -9,7 +9,6 @@ import dominion.card.base.*;
 class Main {
 
 	public static void main(String[] args) {
-
 		// Noms des joueurs de la partie
 		// (le nombre total de joueurs correspond au nombre de noms dans le 
 		// tableau)
@@ -22,9 +21,55 @@ class Main {
 		// Ajouter un bloc pour chaque carte royaume à utiliser
 		stack = new CardList();
 		for (int i = 0; i < 10; i++) {
+			stack.add(new Cellar());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Market());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Militia());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Mine());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Moat());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Remodel());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Smithy());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
 			stack.add(new Village());
 		}
 		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Woodcutter());
+		}
+		kingdomStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 10; i++) {
+			stack.add(new Workshop());
+		}
+		kingdomStacks.add(stack);
+		System.out.println(kingdomStacks.toString());
 
 		// Instancie et exécute une partie
 		Game g = new Game(playerNames, kingdomStacks);
