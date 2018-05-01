@@ -112,6 +112,11 @@ public class Game {
 	 * non-vide de la réserve (cartes royaume et cartes communes)
 	 */
 	public CardList availableSupplyCards() {
+		CardList result = new CardList();
+		for (int i = 0; i < supplyStacks.size(); i++) {
+			result.add(supplyStacks.get(i).get(0)); // renvoit le premier (0?) de chaque pile
+		}
+		return result;
 	}
 	
 	/**
@@ -165,7 +170,7 @@ public class Game {
 	 * Teste si la partie est terminée
 	 * 
 	 * @return un booléen indiquant si la partie est terminée, c'est-à-dire si
-	 * au moins l'unedes deux conditions de fin suivantes est vraie
+	 * au moins l'une des deux conditions de fin suivantes est vraie
 	 *  - 3 piles ou plus de la réserve sont vides
 	 *  - la pile de Provinces de la réserve est vide
 	 * (on suppose que toute partie contient une pile de Provinces, et donc si 
