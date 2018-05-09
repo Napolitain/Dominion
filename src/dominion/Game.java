@@ -114,7 +114,9 @@ public class Game {
 	public CardList availableSupplyCards() {
 		CardList result = new CardList();
 		for (int i = 0; i < supplyStacks.size(); i++) {
-			result.add(supplyStacks.get(i).get(0)); // renvoit le premier (0?) de chaque pile
+			if (!supplyStacks.get(i).isEmpty()) {
+				result.add(supplyStacks.get(i).get(0)); // renvoit le premier (0?) de chaque pile
+			}
 		}
 		return result;
 	}

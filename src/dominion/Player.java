@@ -314,7 +314,9 @@ public class Player {
 	 * null} si aucune carte n'a été prise dans la réserve.
 	 */
 	public Card gain(String cardName) {
-		
+		Card card = game.removeFromSupply(cardName);
+		discard.add(card);
+		return card;
 	}
 	
 	/**
@@ -332,6 +334,13 @@ public class Player {
 	 * lieu
 	 */
 	public Card buyCard(String cardName) {
+		Card card = game.getFromSupply(cardName);
+		if (card != null && card.getCost() <= money) {
+			money -= card.getCost();
+			buys--;
+			gain(card);
+		}
+		return card;
 	}
 	
 	/**
@@ -456,6 +465,8 @@ public class Player {
 	 * Les compteurs d'actions et achats sont mis à 1
 	 */
 	public void startTurn() {
+		buys = 1;
+		actions = 1;
 	}
 	
 	/**
@@ -466,6 +477,16 @@ public class Player {
 	 * - Le joueur pioche 5 cartes en main
 	 */
 	public void endTurn() {
+		actions = 0;
+		money = 0;
+		buys = 0;
+		discard.addAll(hand);
+		discard.addAll(inPlay);
+		hand.clear();
+		inPlay.clear();
+		for (int i = 0; i < 5; i++) {
+			drawCard();
+		}
 	}
 	
 	/**
@@ -496,5 +517,6 @@ public class Player {
 	 * du joueur
 	 */
 	public void playTurn() {
+		
 	}
 }
