@@ -485,7 +485,7 @@ public class Player {
 		hand.clear();
 		inPlay.clear();
 		for (int i = 0; i < 5; i++) {
-			drawCard();
+			hand.add(drawCard());
 		}
 	}
 	
@@ -517,6 +517,9 @@ public class Player {
 	 * du joueur
 	 */
 	public void playTurn() {
-		
+		startTurn();
+		while (actions > 0) {
+			chooseCard()
+		}
 	}
 }
