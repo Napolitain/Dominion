@@ -155,8 +155,11 @@ public class Game {
 	 */
 	public Card getFromSupply(String cardName) {
 		for (int i = 0; i < supplyStacks.size(); i++) {
-
+			if (!supplyStacks.get(i).isEmpty() && supplyStacks.get(i).get(0).getName() == cardName) {
+				return supplyStacks.get(i).get(0);
+			}
 		}
+		return null;
 	}
 	
 	/**
@@ -167,6 +170,9 @@ public class Game {
 	 * ne correspond au nom passé en argument
 	 */
 	public Card removeFromSupply(String cardName) {
+		Card card = getFromSupply(cardName);
+		supplyStacks.remove(card);
+		return card;
 	}
 	
 	/**
@@ -181,6 +187,7 @@ public class Game {
 	 * c'est que la partie est terminée)
 	 */
 	public boolean isFinished() {
+		
 	}
 	
 	/**
