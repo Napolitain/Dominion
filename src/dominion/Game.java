@@ -154,6 +154,9 @@ public class Game {
 	 * ne correspond
 	 */
 	public Card getFromSupply(String cardName) {
+		for (int i = 0; i < supplyStacks.size(); i++) {
+
+		}
 	}
 	
 	/**
