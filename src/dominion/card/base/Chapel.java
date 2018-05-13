@@ -16,8 +16,11 @@ public class Chapel extends ActionCard {
 
 	@Override
 	public void play(Player p) {
+		String input;
 		do {
-			p.chooseCard("Ecartez jusqu'à 4 cartes de votre main.");
-		} while ();
+			input = p.chooseCard("Écartez jusqu'à 4 cartes de votre main.", p.cardsInHand(), true);
+			p.cardsInHand().remove(input);
+			p.getGame().t
+		} while (input.equals(""));
 	}
 }

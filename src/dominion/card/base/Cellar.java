@@ -19,11 +19,18 @@ public class Cellar extends ActionCard {
 
 	@Override
 	public void play(Player p) {
-		p.incrementActions(1);
-		String input;
+		p.incrementActions(1); // +1 action
+		String input; // défaussez autant de cartes que vous voulez
+		CardList cards = new CardList();
 		do {
 			input = p.chooseCard("Défaussez autant de cartes que vous le voulez.", p.cardsInHand(), true);
-			p.cardsInHand().remove(input);
-		} while (input != "");
+			if (!input.equals("")) {
+				p.cardsInHand().remove(input);
+				cards.add(p.drawCard());
+			}
+		} while (input.equals(""));
+		for (Card c: cards) { // +1 carte par carte défaussée
+			p.gain(c);
+		}
 	}
 }
