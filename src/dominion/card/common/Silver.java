@@ -8,9 +8,18 @@ import dominion.card.*;
  * 2 Pièces
  */
 public class Silver extends TreasureCard {
-	public Silver() { super("Silver", 3);	}
-	
+
+	public Silver() {
+		super("Silver", 3);
+	}
+
 	public int treasureValue() {
 		return 2;
 	}
+
+	@Override
+	public void play(Player p) {
+		p.incrementMoney(treasureValue());
+	}
+
 }

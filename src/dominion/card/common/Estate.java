@@ -8,9 +8,11 @@ import dominion.card.*;
  * 1 VP
  */
 public class Estate extends VictoryCard {
+
 	public Estate() { super("Estate", 2);	}
 	
 	public int victoryValue(Player p) {
 		return 1;
 	}
+
 }

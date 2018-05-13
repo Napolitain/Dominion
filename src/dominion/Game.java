@@ -43,9 +43,54 @@ public class Game {
 	 * - 60 Copper
 	 * - 40 Silver
 	 * - 30 Gold
-	 * - 8 (si 2 joueurs) ou 12 (si 3 ou 4 joueurs) Estate, Duchy et Province 	 * - 10 * (n-1) Curse où n est le nombre de joueurs dans la partie
+	 * - 8 (si 2 joueurs) ou 12 (si 3 ou 4 joueurs) Estate, Duchy et Province
+	 * - 10 * (n-1) Curse où n est le nombre de joueurs dans la partie
 	 */
 	public Game(String[] playerNames, List<CardList> kingdomStacks) {
+		this.players = new Player[playerNames.length];
+		for (int i = 0; i < playerNames.length; i++) {
+			this.players[i] = new Player(playerNames[i], this);
+		}
+		supplyStacks.addAll(kingdomStacks); // on rajoute les cartes royaumes (de main)
+		CardList stack = new CardList();
+		for (int i = 0; i < 60; i++) {
+			stack.add(new Copper());
+		}
+		supplyStacks.add(stack); // on rajoute Copper
+		stack = new CardList();
+		for (int i = 0; i < 40; i++) {
+			stack.add(new Silver());
+		}
+		supplyStacks.add(stack);
+		stack = new CardList();
+		for (int i = 0; i < 30; i++) { // Silver
+			stack.add(new Gold());
+		}
+		supplyStacks.add(stack);
+		stack = new CardList();
+		int j = 8;
+		if (players.length > 2) { // Gold
+			j = 12;
+		}
+		for (int i = 0; i < j; i++) {
+			stack.add(new Estate());
+		}
+		supplyStacks.add(stack); // Estate
+		stack = new CardList();
+		for (int i = 0; i < j; i++) {
+			stack.add(new Duchy());
+		}
+		supplyStacks.add(stack); // Duchy
+		stack = new CardList();
+		for (int i = 0; i < j; i++) {
+			stack.add(new Province());
+		}
+		supplyStacks.add(stack); // Province
+		stack = new CardList();
+		for (int i = 0; i < (10 * (players.length - 1)); i++) {
+			stack.add(new Curse());
+		}
+		supplyStacks.add(stack); // Curse
 	}
 	
 	/**

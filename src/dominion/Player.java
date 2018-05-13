@@ -1,6 +1,8 @@
 package dominion;
 import java.util.*;
 import dominion.card.*;
+import dominion.card.common.Estate;
+import dominion.card.common.Copper;
 
 /**
  * Un joueur de Dominion
@@ -65,6 +67,15 @@ public class Player {
 	 * préparer la main du joueur après avoir placé les cartes dans la défausse.
 	 */
 	public Player(String name, Game game) {
+		for (int i = 0; i < 3; i++) {
+			discard.add(new Estate());
+		}
+		for (int i = 0; i < 7; i++) {
+			discard.add(new Copper());
+		}
+		this.name = name;
+		this.game = game;
+		endTurn();
 	}
 
 	/**
@@ -517,9 +528,31 @@ public class Player {
 	 * du joueur
 	 */
 	public void playTurn() {
-		startTurn();
-		while (actions > 0) {
-			chooseCard()
+		startTurn(); // 1. Préparation
+		while (actions > 0) { // 2. Action
+			CardList choices = new CardList();
+	 		for (Card c: hand) {
+	 			if (c.getTypes().contains(CardType.Action)) {
+	 				choices.add(c);
+	 			}
+	 		}
+	 		String input = chooseCard("Choose an Action card.", choices, true);
+	 		if (input != "") {
+				actions--;
+				playCard(input);
+			}
 		}
+		for (Card c: hand) { // 3. Trésor
+			if (c.getTypes().contains(CardType.Treasure)) {
+				playCard(c);
+			}
+		}
+		while (buys > 0) { // 4. Achat
+			String input = chooseCard("Choose a cardname.", game.availableSupplyCards(), true);
+			if (input != "") {
+				buyCard(input);
+			}
+		}
+		endTurn(); // 5. Fin
 	}
 }

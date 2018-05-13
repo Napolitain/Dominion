@@ -7,6 +7,9 @@ import dominion.*;
  */
 public abstract class VictoryCard extends Card {
 
+	public VictoryCard(String name, int cost) {
+		super(name, cost);
+	}
 
 	/**
 	 * Une carte Victoire renvoit des
@@ -19,6 +22,11 @@ public abstract class VictoryCard extends Card {
 	 */
 	@Override
 	public int victoryValue(Player p) {
+		return 0;
+	}
+
+	@Override
+	public void play(Player p) {
 
 	}
 }
