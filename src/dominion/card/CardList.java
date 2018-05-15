@@ -80,4 +80,5 @@ public class CardList extends ArrayList<Card> {
 		}
 		return r.substring(0, r.length() - 2);
 	}
+
 }

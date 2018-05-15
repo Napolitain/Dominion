@@ -25,12 +25,11 @@ public class Cellar extends ActionCard {
 		do {
 			input = p.chooseCard("Défaussez autant de cartes que vous le voulez.", p.cardsInHand(), true);
 			if (!input.equals("")) {
-				p.cardsInHand().remove(input);
+				Card c = p.cardsInHand().remove(input);
+				p.addToDiscard(c);
 				cards.add(p.drawCard());
 			}
 		} while (input.equals(""));
-		for (Card c: cards) { // +1 carte par carte défaussée
-			p.gain(c);
-		}
+		p.gain(cards); // on a rajouté une méthode qui prend en compte les cardlist
 	}
 }

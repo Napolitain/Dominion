@@ -132,6 +132,14 @@ public class Player {
 	}
 
 	/**
+	 * A
+	 * @param card
+	 */
+	public void addToDiscard(Card card) {
+		discard.add(card);
+	}
+
+	/**
 	 * Renvoie une liste des cartes que le joueur a en main.
 	 * La liste renvoyée doit être une nouvelle {@code CardList} dont les 
 	 * éléments sont les mêmes que ceux de {@code this.hand}.
@@ -311,6 +319,16 @@ public class Player {
 	 */
 	public void gain(Card c) {
 		if (c != null) {
+			discard.add(c);
+		}
+	}
+
+	/**
+	 * Le joueur gagne une liste de cartes
+	 * @param l
+	 */
+	public void gain(CardList l) {
+		for (Card c: l) {
 			discard.add(c);
 		}
 	}
