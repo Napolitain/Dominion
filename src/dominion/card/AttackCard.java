@@ -11,4 +11,8 @@ public abstract class AttackCard extends ActionCard {
     public AttackCard(String name, int cost) {
         super(name, cost);
     }
+
+    public  attackReaction() {
+
+	}
 }

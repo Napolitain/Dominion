@@ -10,8 +10,25 @@ import dominion.card.*;
  */
 public class Adventurer extends ActionCard {
 
+    public Adventurer() {
+        super("Adventurer", 6);
+    }
+
     @Override
     public void play(Player p) {
-
+		Card card;
+		int treasureCount = 0;
+		int totalCount = 0;
+    	do {
+			card = p.drawCard();
+			if (!(card instanceof TreasureCard)) {
+				p.addToDiscard(card);
+			} else {
+				p.addToHand(card);
+				treasureCount++;
+			}
+			totalCount++;
+		} while ((treasureCount < 2) || (totalCount < p.deckWithoutInPlay().size()));
+    	p.addToDiscard(this);
     }
 }

@@ -132,11 +132,27 @@ public class Player {
 	}
 
 	/**
-	 * A
-	 * @param card
+	 * Enlève la carte de la main et la rajoute dans la défausse.
+	 *
+	 * @param card carte à défausser
 	 */
 	public void addToDiscard(Card card) {
+		hand.remove(card);
 		discard.add(card);
+	}
+
+	/**
+	 * On cherche la carte dont le nom est cardName, et on appelle addToDiscard(Card c) pour défausser.
+	 *
+	 * @param cardName nom de la carte à défausser
+	 */
+	public void addToDiscard(String cardName) {
+		for (Card c: hand) {
+			if (c.getName() == cardName) {
+				addToDiscard(c); // défausse
+				return; // return void
+			}
+		}
 	}
 
 	/**
@@ -160,6 +176,17 @@ public class Player {
 		deck.addAll(discard);
 		deck.addAll(draw);
 		deck.addAll(inPlay);
+		return deck;
+	}
+
+	/**
+	 * Renvoie le deck sans les cartes en jeu.
+	 * @return CardList
+	 */
+	public CardList deckWithoutInPlay() {
+		CardList deck = new CardList(hand);
+		deck.addAll(discard);
+		deck.addAll(draw);
 		return deck;
 	}
 	
@@ -212,6 +239,22 @@ public class Player {
 		Card result = draw.get(0);
 		draw.remove(0);
 		return result;
+	}
+
+	/**
+	 * Ajoute une carte à hand.
+	 * @param c carte à ajouter.
+	 */
+	public void addToHand(Card c) {
+		hand.add(c);
+	}
+
+	/**
+	 * Ajoute une CardList à hand.
+	 * @param l CardList à ajouter.
+	 */
+	public void addToHand(CardList l) {
+		hand.addAll(l);
 	}
 	
 	/**

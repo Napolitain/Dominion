@@ -10,4 +10,15 @@ import dominion.card.*;
  * +2 Actions.
  */
 public class Village extends ActionCard {
+
+	public Village() {
+		super("Village", 3);
+	}
+
+	@Override
+	public void play(Player p) {
+		p.addToHand(p.drawCard());
+		p.incrementActions(2);
+		p.addToDiscard(this);
+	}
 }

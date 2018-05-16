@@ -18,10 +18,13 @@ public class Militia extends AttackCard {
 	@Override
 	public void play(Player p) {
 		p.incrementMoney(2); // +2 pieces
-		for (Player a: p.otherPlayers()) {
-			while (a.cardsInHand().size() > 3) {
-				a.
+		String input;
+		for (Player a: p.otherPlayers()) { // pour chaque adversaire
+			while (a.cardsInHand().size() > 3) { // tant qu'il a plus de 3 cartes
+				input = a.chooseCard("Choisissez une carte à défausser.", a.cardsInHand(), false);
+				a.addToDiscard(input);
 			}
 		}
+		p.addToDiscard(this); // place la carte dans la défausse une fois jouée
 	}
 }

@@ -20,6 +20,7 @@ public class Silver extends TreasureCard {
 	@Override
 	public void play(Player p) {
 		p.incrementMoney(treasureValue());
+		p.addToDiscard(this); // defausse la carte jouée
 	}
 
 }

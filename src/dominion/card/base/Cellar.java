@@ -30,6 +30,7 @@ public class Cellar extends ActionCard {
 				cards.add(p.drawCard());
 			}
 		} while (input.equals(""));
-		p.gain(cards); // on a rajouté une méthode qui prend en compte les cardlist
+		p.addToHand(cards); // on a rajouté une méthode qui prend en compte les cardlist
+		p.addToDiscard(this); // place la carte dans la défausse une fois jouée
 	}
 }
