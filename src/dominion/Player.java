@@ -275,7 +275,15 @@ public class Player {
 		r += String.format("Hand: %s\n", this.hand.toString());
 		return r;
 	}
-	
+
+	/**
+	 * Retourne la pioche
+	 * @return CardList
+	 */
+	public CardList getDraw() {
+		return draw;
+	}
+
 	/**
 	 * Renvoie la liste de toutes les cartes Trésor dans la main du joueur
 	 */
