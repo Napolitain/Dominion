@@ -17,7 +17,23 @@ public class Moat extends ReactionCard {
 
 	@Override
 	public void play(Player p) {
-		p.gain(p.drawCard());
-		p.gain(p.drawCard());
+		p.addToHand(p.drawCard());
+		p.addToHand(p.drawCard());
+	}
+
+	/**
+	 * Effet réaction de la carte Douve.
+	 * @param p joueur (adversaire) ciblé par l'attaque
+	 * @return un boolean, {@code true si le joueur se défend}
+	 */
+	@Override
+	public boolean reaction(Player p) {
+		List<String> choices = Arrays.asList("o", "n");
+		String input = p.choose("Voulez vous jouer la carte Douve? o/n", choices, false);
+		if (input.equals("o")) {
+			System.out.println("Douve! Attaque évitée");
+			return true;
+		}
+		return false;
 	}
 }
