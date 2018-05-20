@@ -12,7 +12,7 @@ import dominion.card.*;
 public class Woodcutter extends ActionCard {
 
 	public Woodcutter() {
-		super("Woodcutter", 1);
+		super("Woodcutter", 3);
 	}
 
 	@Override
