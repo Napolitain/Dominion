@@ -12,6 +12,9 @@ public abstract class CurseCard extends Card {
 	}
 
 	@Override
-	public void play(Player p) {
+	public List<CardType> getTypes() {
+		List<CardType> types = super.getTypes();
+		types.add(CardType.Curse);
+		return types;
 	}
 }
