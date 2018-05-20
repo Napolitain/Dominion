@@ -20,9 +20,11 @@ public class Militia extends AttackCard {
 		p.incrementMoney(2); // +2 pieces
 		String input;
 		for (Player a: p.otherPlayers()) { // pour chaque adversaire
-			while (a.cardsInHand().size() > 3) { // tant qu'il a plus de 3 cartes
-				input = a.chooseCard("Choisissez une carte à défausser.", a.cardsInHand(), false);
-				a.addToDiscard(input);
+			if (!playerReact(a)) {
+				while (a.cardsInHand().size() > 3) { // tant qu'il a plus de 3 cartes
+					input = a.chooseCard("Choisissez une carte à défausser.", a.cardsInHand(), false);
+					a.addToDiscard(input);
+				}
 			}
 		}
 	}
