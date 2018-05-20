@@ -18,4 +18,6 @@ public abstract class ReactionCard extends ActionCard {
 		types.add(CardType.Reaction);
 		return types;
 	}
+
+	public abstract boolean reaction(Player p);
 }
