@@ -31,4 +31,9 @@ public abstract class VictoryCard extends Card {
 		types.add(CardType.Victory);
 		return types;
 	}
+
+	@Override
+	public void play(Player p) {
+		// pas d'effet
+	}
 }
