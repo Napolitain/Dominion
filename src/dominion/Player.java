@@ -414,7 +414,7 @@ public class Player {
 	 */
 	public Card buyCard(String cardName) {
 		Card card = game.getFromSupply(cardName);
-		if (card != null && card.getCost() <= money) {
+		if (card != null && card.getCost() <= money && buys > 0) {
 			money -= card.getCost();
 			buys--;
 			gain(card);
@@ -617,7 +617,7 @@ public class Player {
 		}
 		while (buys > 0) { // 4. Achat
 			String input = chooseCard("Choose a cardname.", game.availableSupplyCards(), true);
-			if (input != "") {
+			if (!input.equals("")) {
 				buyCard(input);
 			}
 		}
