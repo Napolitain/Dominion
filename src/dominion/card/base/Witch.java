@@ -22,6 +22,5 @@ public class Witch extends AttackCard {
 		for (Player a: p.otherPlayers()) {
 			a.gain("Curse");
 		}
-		p.addToDiscard(this); // place la carte dans la défausse une fois jouée
 	}
 }

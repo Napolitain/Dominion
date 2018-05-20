@@ -31,6 +31,5 @@ public class Cellar extends ActionCard {
 			}
 		} while (input.equals(""));
 		p.addToHand(cards); // on a rajouté une méthode qui prend en compte les cardlist
-		p.addToDiscard(this); // place la carte dans la défausse une fois jouée
 	}
 }

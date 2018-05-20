@@ -27,6 +27,5 @@ public class Remodel extends ActionCard {
 		}
 		input = p.chooseCard("Recevez une carte coûtant jusqu'à 2 pièces de plus que la carte écartée.", availableCardsPlusTwo, false);
 		p.addToHand(p.getGame().removeFromSupply(input)); // reçoit une carte de la réserve
-		p.addToDiscard(this); // défausse la carte jouée
 	}
 }

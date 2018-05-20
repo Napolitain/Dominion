@@ -25,6 +25,5 @@ public class Militia extends AttackCard {
 				a.addToDiscard(input);
 			}
 		}
-		p.addToDiscard(this); // place la carte dans la défausse une fois jouée
 	}
 }

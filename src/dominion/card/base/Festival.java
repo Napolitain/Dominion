@@ -21,6 +21,5 @@ public class Festival extends ActionCard {
 		p.incrementActions(2);
 		p.incrementActions(1);
 		p.incrementMoney(2);
-		p.addToDiscard(this); // place la carte dans la défausse une fois jouée
 	}
 }

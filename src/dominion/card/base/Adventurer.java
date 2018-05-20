@@ -29,6 +29,5 @@ public class Adventurer extends ActionCard {
 			}
 			totalCount++;
 		} while ((treasureCount < 2) || (totalCount < p.deckWithoutInPlay().size()));
-    	p.addToDiscard(this);
     }
 }

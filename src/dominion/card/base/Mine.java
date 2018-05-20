@@ -30,6 +30,5 @@ public class Mine extends ActionCard {
 			input = p.chooseCard("Choisissez une carte Trésor coûtant jusqu'à 3 pièces en plus.", treasureCardPlusThree, false);
 			p.addToHand(p.getGame().removeFromSupply(input)); // on prend une carte de la réserve
 		}
-		p.addToDiscard(this); // défausse la carte jouée
 	}
 }

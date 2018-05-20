@@ -23,6 +23,5 @@ public class Chapel extends ActionCard {
 			p.cardsInHand().remove(input); // on a choisi de ne pas mettre les cartes dans trashedCards car elles ne serviront plus; donc on laisse explicitement le garbage collector s'en occuper (solution acceptée)
 			i++;
 		} while (!input.equals("") && i < 4);
-		p.addToDiscard(this); // place la carte dans la défausse une fois jouée
 	}
 }

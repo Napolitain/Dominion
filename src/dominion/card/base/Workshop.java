@@ -24,6 +24,5 @@ public class Workshop extends ActionCard {
 		}
 		String input = p.chooseCard("Recevez une carte coûtant jusqu'à 4 pièces.", cardsUnderFour, false);
 		p.addToHand(p.getGame().removeFromSupply(input));
-		p.addToDiscard(this);
 	}
 }

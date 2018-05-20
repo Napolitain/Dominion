@@ -19,6 +19,5 @@ public class Smithy extends ActionCard {
 		for (int i = 0; i < 3; i++) {
 			p.addToHand(p.drawCard());
 		}
-		p.addToDiscard(this); // défausse la carte jouée
 	}
 }

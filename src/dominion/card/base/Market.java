@@ -23,6 +23,5 @@ public class Market extends ActionCard {
 		p.incrementActions(1); // +1 action
 		p.incrementBuys(1); // +1 achat
 		p.incrementMoney(1); // +1 piece
-		p.addToDiscard(this); // on défausse la carte jouée
 	}
 }

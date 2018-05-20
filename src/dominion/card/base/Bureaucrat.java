@@ -27,6 +27,5 @@ public class Bureaucrat extends AttackCard {
 				p.getDraw().add(0, p.getVictoryCards().remove(input)); // enlève place la carte de sa main sur le haut de sa pioche
 			}
 		}
-        p.addToDiscard(this); // défausse la carte jouée
     }
 }
