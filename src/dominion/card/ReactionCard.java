@@ -11,4 +11,11 @@ public abstract class ReactionCard extends ActionCard {
 	public ReactionCard(String name, int cost) {
 		super(name, cost);
 	}
+
+	@Override
+	public List<CardType> getTypes() {
+		List<CardType> types = super.getTypes();
+		types.add(CardType.Reaction);
+		return types;
+	}
 }

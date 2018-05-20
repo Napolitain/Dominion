@@ -12,7 +12,15 @@ public abstract class AttackCard extends ActionCard {
         super(name, cost);
     }
 
-    public  attackReaction() {
+	@Override
+	public List<CardType> getTypes() {
+    	List<CardType> types = super.getTypes(); // action + attack (stack)
+    	types.add(CardType.Attack);
+    	return types;
+	}
+
+	@Override
+	public void play(Player p) {
 
 	}
 }

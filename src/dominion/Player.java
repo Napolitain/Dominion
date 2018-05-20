@@ -277,8 +277,7 @@ public class Player {
 	}
 
 	/**
-	 * Retourne la pioche
-	 * @return CardList
+	 * @return la pioche
 	 */
 	public CardList getDraw() {
 		return draw;
