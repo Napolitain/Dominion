@@ -615,17 +615,17 @@ public class Player {
 	 			actions = 0;
 			}
 		}
-		for (Card c: hand) { // 3. Trésor
-			if (c.getTypes().contains(CardType.Treasure)) {
-				playCard(c);
-			}
+		while (!getTreasureCards().isEmpty()) { // 3. Trésor
+			playCard(getTreasureCards().get(0));
 		}
-		while (buys > 0) { // 4. Achat
-			String input = chooseCard("Achetez une carte.", game.availableSupplyCards(), true);
+		String input;
+		do { // 4. Achat
+			System.out.println(game.availableSupplyCards());
+			input = chooseCard("Achetez une carte.", game.availableSupplyCards(), true);
 			if (!input.equals("")) {
 				buyCard(input);
 			}
-		}
+		} while (buys > 0 && !input.equals(""));
 		endTurn(); // 5. Fin
 	}
 

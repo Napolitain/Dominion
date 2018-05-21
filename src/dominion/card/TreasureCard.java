@@ -14,7 +14,7 @@ public abstract class TreasureCard extends Card {
 	@Override
 	public List<CardType> getTypes() {
 		List<CardType> types = super.getTypes();
-		types.add(CardType.Victory);
+		types.add(CardType.Treasure);
 		return types;
 	}
 
