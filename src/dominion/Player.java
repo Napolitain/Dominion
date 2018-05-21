@@ -661,4 +661,9 @@ public class Player {
 	public Card removeFromInPlay(String cardName) {
 		return inPlay.remove(cardName);
 	}
+
+	public void placeOnDraw(String cardName) {
+		Card c = removeFromHand(cardName);
+		draw.add(0, c);
+	}
 }
