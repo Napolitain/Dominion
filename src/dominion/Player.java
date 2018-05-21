@@ -397,9 +397,8 @@ public class Player {
 	 * null} si aucune carte n'a été prise dans la réserve.
 	 */
 	public Card gain(String cardName) {
-		Card card = game.removeFromSupply(cardName);
-		discard.add(card);
-		return card;
+		gain(game.getFromSupply(cardName));
+		return game.removeFromSupply(cardName);
 	}
 	
 	/**
@@ -421,9 +420,9 @@ public class Player {
 		if (card != null && card.getCost() <= money && buys > 0) {
 			money -= card.getCost();
 			buys--;
-			gain(card);
+			return gain(cardName);
 		}
-		return card;
+		return null;
 	}
 	
 	/**
