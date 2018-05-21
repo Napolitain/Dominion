@@ -29,9 +29,9 @@ public class Thief extends AttackCard {
 					}
 				}
 				System.out.println(cards);
-    			for (Card c: cards) { // pour chaque carte qui n'est pas une trésor on la défausse
-    				if (!c.getTypes().contains(CardType.Treasure)) {
-    					a.gain(cards.remove(c.getName()));
+    			for (int i = 0; i < cards.size(); i++) {
+    				if (!cards.get(i).getTypes().contains(CardType.Treasure)) {
+    					a.gain(cards.remove(i));
 					}
 				}
 				if (cards.isEmpty()) {
