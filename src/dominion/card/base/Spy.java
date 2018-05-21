@@ -13,7 +13,7 @@ import dominion.card.*;
 public class Spy extends AttackCard {
 
 
-    public Spy(){
+    public Spy() {
         super("Spy", 4);
     }
 
