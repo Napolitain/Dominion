@@ -42,7 +42,7 @@ public class Thief extends AttackCard {
 				for (int z = 0; z < choiceTreasureList.size(); z++) {
 					stockTreasure.add(choiceTreasureList.get(z)); //on ajoute les cartes une par une à la liste
 					String input = p.chooseCard("Voulez vous garder cette carte ? y/n", stockTreasure, false);
-					if (input == "o") { //si le joueur veut garder la carte
+					if (input.equals("y")) { //si le joueur veut garder la carte
 						p.addToDiscard(choiceTreasureList.get(z)); // on ajoute la carte à sa défausse
 					}
 					else { //sinon on l'ajoute à une liste poubelle

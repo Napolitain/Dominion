@@ -24,7 +24,7 @@ public class Spy extends AttackCard {
         CardList c = new CardList();
         c.add(p.drawCard()); //On génère une cardlist pour une carte
         String input = p.chooseCard("Voulez vous défausser cette carte ? y/n", c, false);
-        if (input == "o") { //si le joueur veut défausser SA carte
+        if (input.equals("y")) { //si le joueur veut défausser SA carte
             p.addToDiscard(input); //on ajoute à la défausse
             c.remove(input); //on enlève la carte de la cardlist
         } else { //si le joueur veut replacer sa carte dans son deck
@@ -35,7 +35,7 @@ public class Spy extends AttackCard {
             if (!playerReact(a)) {
 				c.add(a.drawCard());
 				String adinput = p.chooseCard("Voulez vous défausser cette carte ? y/n", c, false);
-				if (adinput == "o") {
+				if (adinput.equals("y")) {
 					a.addToDiscard(input);
 					c.remove(input);
 				} else {
