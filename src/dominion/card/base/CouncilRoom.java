@@ -13,7 +13,7 @@ import dominion.card.*;
 public class CouncilRoom extends ActionCard {
 
 	public CouncilRoom() {
-		super("CouncilRoom", 5);
+		super("Council Room", 5);
 	}
 
 	@Override
