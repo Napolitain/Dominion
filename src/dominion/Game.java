@@ -235,18 +235,16 @@ public class Game {
 	 * c'est que la partie est terminée)
 	 */
 	public boolean isFinished() {
+		boolean province = true;
 		int vide = 0;
-		int nb = 0;
-		for (int i = 0; i < supplyStacks.size(); i++) {
-			if (supplyStacks.get(i).isEmpty()) {
+		for (CardList cards: supplyStacks) {
+			if (cards.isEmpty()) {
 				vide++;
-			} else {
-				if (supplyStacks.get(i).get(0).getName() != "Province") {
-					nb++;
-				}
+			} else if (cards.get(0).getName().equals("Province")) {
+				province = false;
 			}
 		}
-		return (vide >= 3) || (nb < supplyStacks.size()); // si 3 piles sont vides ou que toutes les piles non vides ne sont pas des provinces
+		return province || vide >= 3;
 	}
 	
 	/**
