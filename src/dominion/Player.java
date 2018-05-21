@@ -653,4 +653,12 @@ public class Player {
 	public Card removeFromHand(String cardName) {
 		return hand.remove(cardName);
 	}
+
+	public Card removeFromInPlay(Card c) {
+		return removeFromInPlay(c.getName());
+	}
+
+	public Card removeFromInPlay(String cardName) {
+		return inPlay.remove(cardName);
+	}
 }

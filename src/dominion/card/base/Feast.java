@@ -17,13 +17,14 @@ public class Feast extends ActionCard {
 
 	@Override
 	public void play(Player p) {
-		String input = p.chooseCard("Recevez une carte coûtant jusqu'à 5 pièces.", p.getGame().availableSupplyCards(), false);
+		p.removeFromInPlay(this);
+		CardList choice = new CardList();
 		for (Card c: p.getGame().availableSupplyCards()) {
-			if (c.getName() == input && c.getCost() <= 5) {
-				p.gain(c); // gagne une carte
-				p.removeFromHand(c); // écarte cette carte
-				return;
+			if (c.getCost() <= 5) {
+				choice.add(c);
 			}
 		}
+		String input = p.chooseCard("Recevez une carte coûtant jusqu'à 5 pièces.", choice, false);
+		p.gain(input);
 	}
 }
