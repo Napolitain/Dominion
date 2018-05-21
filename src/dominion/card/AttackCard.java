@@ -27,7 +27,7 @@ public abstract class AttackCard extends ActionCard {
 	public boolean playerReact(Player p) {
     	boolean flag = false; // valeur par défaut
     	for (Card c: p.cardsInHand()) {
-    		if (c.getTypes().contains(CardType.Attack) && flag == false) { // si la carte est une carte réaction
+    		if (c.getTypes().contains(CardType.Reaction) && flag == false) { // si la carte est une carte réaction
     			flag = ((ReactionCard) c).reaction(p); // on cast la carte (qui est une reaction d'après le if) pour appliquer la méthode reaction retournant un boolean
 			} // si le boolean est vrai on stop et on return, sinon on attend (au cas ou il veut réagir avec une autre carte)
 		}
