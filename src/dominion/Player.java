@@ -244,10 +244,9 @@ public class Player {
 		if (draw.isEmpty()) { // si la pioche est vide on y rajoute la defausse
 			discard.shuffle();
 			draw.addAll(discard);
+			discard.clear();
 		}
-		Card result = draw.get(0);
-		draw.remove(0);
-		return result;
+		return draw.remove(0); // on retourne la carte piochée
 	}
 
 	/**
