@@ -30,7 +30,7 @@ public class Moat extends ReactionCard {
 	public boolean reaction(Player p) {
 		List<String> choices = Arrays.asList("y", "n");
 		String input = p.choose("Voulez vous jouer la carte Douve? y/n", choices, false);
-		if (input.equals("o")) {
+		if (input.equals("y")) {
 			System.out.println("Douve! Attaque évitée");
 			return true;
 		}
