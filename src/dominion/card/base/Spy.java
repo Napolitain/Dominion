@@ -18,31 +18,26 @@ public class Spy extends AttackCard {
     }
 
     public void play(Player p) {
-
-        p.addToHand(p.drawCard()); // on ajoute une carte pioché à la main du joueur
-        p.incrementActions(1); // on donne +1 action au joueur
-        CardList c = new CardList();
-        c.add(p.drawCard()); //On génère une cardlist pour une carte
-        String input = p.chooseCard("Voulez vous défausser cette carte ? y/n", c, false);
-        if (input.equals("y")) { //si le joueur veut défausser SA carte
-            p.addToDiscard(input); //on ajoute à la défausse
-            c.remove(input); //on enlève la carte de la cardlist
-        } else { //si le joueur veut replacer sa carte dans son deck
-            p.getDraw().add(0, c.get(0)); // on la rajoute en 1ère position
-            c.remove(input); //on l'enlève de la cardlist
-        }
-        for (Player a : p.otherPlayers()) { // a est un adversaire, même principe qu'au dessus
-            if (!playerReact(a)) {
-				c.add(a.drawCard());
-				String adinput = p.chooseCard("Voulez vous défausser cette carte ? y/n", c, false);
-				if (adinput.equals("y")) {
-					a.addToDiscard(input);
-					c.remove(input);
-				} else {
-					a.getDraw().add(0, c.get(0));
-					c.remove(input);
+    	p.addToHand(p.drawCard());
+    	p.incrementActions(1);
+		List<Player> players = new ArrayList<Player>();
+		players.addAll(p.otherPlayers());
+		players.add(p);
+		Card c;
+		String input;
+		List<String> choices = Arrays.asList("y", "n");
+		for (Player player: players) { // tous les joueurs p compris
+			if ((p == player) || (p != player && playerReact(p))) {
+				c = player.drawCard();
+				if (c != null) {
+					input = player.choose("Voulez-vous défausser cette carte? y/n", choices, false);
+					if (input.equals("y")) {
+						player.addToDiscard(c);
+					} else {
+						player.addToDraw(c);
+					}
 				}
 			}
-        }
+		}
     }
 }
