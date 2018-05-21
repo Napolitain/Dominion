@@ -20,24 +20,24 @@ public class Spy extends AttackCard {
     public void play(Player p) {
     	p.addToHand(p.drawCard());
     	p.incrementActions(1);
-		List<Player> players = new ArrayList<Player>();
-		players.addAll(p.otherPlayers());
-		players.add(p);
-		Card c;
-		String input;
-		List<String> choices = Arrays.asList("y", "n");
-		for (Player player: players) { // tous les joueurs p compris
-			if ((p == player) || (p != player && playerReact(p))) {
-				c = player.drawCard();
-				if (c != null) {
-					input = player.choose("Voulez-vous défausser cette carte? y/n", choices, false);
-					if (input.equals("y")) {
-						player.addToDiscard(c);
-					} else {
-						player.addToDraw(c);
-					}
-				}
+    	action(p);
+    	for (Player a: p.otherPlayers()) {
+    		if (!playerReact(a)) {
+				action(a);
 			}
 		}
     }
+
+    public void action(Player p) {
+		Card c = p.drawCard();
+		List<String> choices = Arrays.asList("y", "n");
+		if (c != null) {
+			String input = p.choose("Voulez-vous défausser la carte " + c.getName() + "? y/n", choices, false);
+			if (input.equals("y")) {
+				p.addToDiscard(c);
+			} else {
+				p.addToDraw(c);
+			}
+		}
+	}
 }
