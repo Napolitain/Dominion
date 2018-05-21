@@ -3,8 +3,6 @@ import java.util.*;
 import dominion.*;
 import dominion.card.*;
 
-import javax.swing.*;
-
 /**
  * Carte Bibliothèque (Library)
  * 
@@ -17,7 +15,8 @@ public class Library extends ActionCard {
     }
 
     public void play(Player p){
-        CardList actionList = new CardList();
+        /*List<String> choices = Arrays.asList("y", "n");
+        String input;
         while (p.cardsInHand().size() < 7){
             Card c = p.drawCard();
             if (c == null) {
@@ -26,16 +25,12 @@ public class Library extends ActionCard {
             }
             p.addToHand(c);
             if (c instanceof ActionCard) {
-                actionList.add(c);
-                String input = p.chooseCard("Voulez vous défausser cette carte ? o/n",actionList, false);
-                if (input == "o"){
+                input = p.chooseCard("Voulez vous défausser cette carte ? o/n", choices, false);
+                if (input.equals("o")) {
                     p.addToDiscard(c);
                     p.cardsInHand().remove(c);
                 }
             }
-            actionList.remove(c);
-
-        }
-
+        }*/
     }
 }
