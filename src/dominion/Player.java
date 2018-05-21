@@ -232,6 +232,9 @@ public class Player {
 	 * @return la carte piochée, {@code null} si aucune carte disponible
 	 */
 	public Card drawCard() {
+		if (draw.isEmpty() && discard.isEmpty()) {
+			return null;
+		}
 		if (draw.isEmpty()) { // si la pioche est vide on y rajoute la defausse
 			discard.shuffle();
 			draw.addAll(discard);
