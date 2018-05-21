@@ -225,7 +225,11 @@ public class Game {
 	 */
 	public Card removeFromSupply(String cardName) {
 		Card card = getFromSupply(cardName);
-		supplyStacks.remove(card);
+		if (card != null) {
+			for (CardList cards: supplyStacks) {
+				cards.remove(card);
+			}
+		}
 		return card;
 	}
 	
