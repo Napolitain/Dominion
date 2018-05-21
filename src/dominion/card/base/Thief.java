@@ -40,7 +40,7 @@ public class Thief extends AttackCard {
             CardList stockTreasure = new CardList(); //Création d'une liste de carte temporaire pour stocké 1 carte
             for (int z = 0; z < choiceTreasureList.size(); z++) {
                 stockTreasure.add(choiceTreasureList.get(z)); //on ajoute les cartes une par une à la liste
-                String input = p.chooseCard("Voulez vous garder cette carte ? o/n", stockTreasure, false);
+                String input = p.chooseCard("Voulez vous garder cette carte ? y/n", stockTreasure, false);
                 if (input == "o") { //si le joueur veut garder la carte
                     p.addToDiscard(choiceTreasureList.get(z)); // on ajoute la carte à sa défausse
                 }

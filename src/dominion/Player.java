@@ -643,4 +643,9 @@ public class Player {
 		discard.addAll(draw);
 		draw.clear();
 	}
+
+	/**
+	public void addToTrash(Card c) {
+		game.trash(c);
+	}
 }

@@ -20,7 +20,7 @@ public class Chancellor extends ActionCard {
 		p.incrementMoney(2);
 		Card c;
 		List<String> choices = Arrays.asList("y", "n");
-		String input = p.choose("Voulez-vous défausser votre deck ? o/n", choices, false);
+		String input = p.choose("Voulez-vous défausser votre deck ? y/n", choices, false);
 		if (input.equals("y")) {
 			p.discardDeck();
 		}
