@@ -22,15 +22,16 @@ public class Bureaucrat extends AttackCard {
 			return;
 		}
         p.addToHand(p.getGame().removeFromSupply("Silver"));
-        for (Player a: p.otherPlayers()) { // a est un adversaire
+
+    	for (Player a: p.otherPlayers()) { // a est un adversaire
         	if (!playerReact(a)) {
         		CardList victory = a.getVictoryCards();
 				if (victory.isEmpty()) {
 					System.out.println(a.cardsInHand().toString()); // dévoile le jeu entier
 				} else {
-					String input = p.chooseCard("Dévoilez une carte", p.getVictoryCards(), false);
+					String input = a.chooseCard("Dévoilez une carte", p.getVictoryCards(), false);
 					System.out.println(input);
-					p.placeOnDraw(input);
+					a.placeOnDraw(input);
 				}
 			}
 		}
