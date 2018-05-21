@@ -19,7 +19,7 @@ public class Library extends ActionCard {
 		/*CardList actionCards = new CardList();
 		Card c;
 		String input;
-		List<String> choices = Arrays.asList("o", "n");
+		List<String> choices = Arrays.asList("y", "n");
 		while (p.cardsInHand().size() < 7) {
 			c = p.drawCard();
 			if (c == null) {

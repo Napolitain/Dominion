@@ -19,9 +19,9 @@ public class Chancellor extends ActionCard {
 	public void play(Player p) {
 		p.incrementMoney(2);
 		Card c;
-		List<String> choices = Arrays.asList("o", "n");
+		List<String> choices = Arrays.asList("y", "n");
 		String input = p.choose("Voulez-vous défausser votre deck ? o/n", choices, false);
-		if (input.equals("o")) {
+		if (input.equals("y")) {
 			p.discardDeck();
 		}
 	}
