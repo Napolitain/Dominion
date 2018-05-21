@@ -31,6 +31,11 @@ public class Game {
 	 * Liste des cartes qui ont été écartées (trash)
 	 */
 	private CardList trashedCards;
+
+	/**
+	 * Scanner rajouté pour les tests et le proxy
+	 */
+	private Scanner scanner;
 	
 	/**
 	 * Constructeur
@@ -48,6 +53,7 @@ public class Game {
 	 */
 	public Game(String[] playerNames, List<CardList> kingdomStacks) {
 		supplyStacks = new ArrayList<CardList>();
+		scanner = new Scanner(System.in);
 		this.players = new Player[playerNames.length];
 		for (int i = 0; i < playerNames.length; i++) {
 			this.players[i] = new Player(playerNames[i], this);
@@ -270,5 +276,19 @@ public class Game {
 			Player p = this.players[i];
 			System.out.println(String.format("%s: %d Points.\n%s\n", p.getName(), p.victoryPoints(), p.totalCards().toString()));
 		}
+	}
+
+	/**
+	 * Lit une ligne de l'entrée standard
+	 *
+	 * C'est cette méthode qui doit être appelée à chaque fois qu'on veut lire
+	 * l'entrée clavier de l'utilisateur (par exemple dans Player.choose), ce
+	 * qui permet de n'avoir qu'un seul Scanner pour tout le programme
+	 *
+	 * @return une chaîne de caractères correspondant à la ligne suivante de
+	 *         l'entrée standard (sans le retour à la ligne final)
+	 */
+	public String readLine() {
+		return this.scanner.nextLine();
 	}
 }
