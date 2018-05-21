@@ -18,10 +18,9 @@ public class Chancellor extends ActionCard {
 	@Override
 	public void play(Player p) {
 		p.incrementMoney(2);
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Choisissez vous de défausser votre deck ? o/n");
-		scan.nextLine();
-		if (scan.equals("o")) {
+		List<String> choices = Arrays.asList("o", "n");
+		String input = choose("Voulez-vous défausser votre deck ? o/n", choices, false);
+		if (input.equals("o")) {
 			for (Card c: p.totalCards()) {
 				p.addToDiscard(c); // pas fini : addToDiscard remove une card de hand pas forcément de la ou elle est
 			}
