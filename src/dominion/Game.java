@@ -47,6 +47,7 @@ public class Game {
 	 * - 10 * (n-1) Curse où n est le nombre de joueurs dans la partie
 	 */
 	public Game(String[] playerNames, List<CardList> kingdomStacks) {
+		supplyStacks = new ArrayList<CardList>();
 		this.players = new Player[playerNames.length];
 		for (int i = 0; i < playerNames.length; i++) {
 			this.players[i] = new Player(playerNames[i], this);
