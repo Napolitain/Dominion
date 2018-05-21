@@ -296,9 +296,9 @@ public class Player {
 	 */
 	public CardList getTreasureCards() {
 		CardList tresor = new CardList();
-		for (int i = 0; i < hand.size(); i++) {
-			if (hand.get(i) instanceof TreasureCard) { // si la carte fait partie des cartes trésors
-				tresor.add(hand.get(i));
+		for (Card c: hand) {
+			if (c.getTypes().contains(CardType.Treasure)) { // si la carte fait partie des cartes trésors
+				tresor.add(c);
 			}
 		}
 		return tresor;
@@ -309,9 +309,9 @@ public class Player {
 	 */
 	public CardList getActionCards() {
 		CardList action = new CardList();
-		for (int i = 0; i < hand.size(); i++) {
-			if (hand.get(i) instanceof ActionCard) { // si la carte fait partie des cartes actions
-				action.add(hand.get(i));
+		for (Card c: hand) {
+			if (c.getTypes().contains(CardType.Action)) { // si la carte fait partie des cartes actions
+				action.add(c);
 			}
 		}
 		return action;
@@ -322,9 +322,9 @@ public class Player {
 	 */
 	public CardList getVictoryCards() {
 		CardList victory = new CardList();
-		for (int i = 0; i < hand.size(); i++) {
-			if (hand.get(i) instanceof VictoryCard) { // si la carte fait partie des cartes victoires
-				victory.add(hand.get(i));
+		for (Card c: hand) {
+			if (c.getTypes().contains(CardType.Victory)) { // si la carte fait partie des cartes victoires
+				victory.add(c);
 			}
 		}
 		return victory;
