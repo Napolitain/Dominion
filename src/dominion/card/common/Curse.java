@@ -17,4 +17,8 @@ public class Curse extends CurseCard {
 		return -1;
 	}
 
+	@Override
+	public void play(Player p) {
+		// pas d'effet
+	}
 }
