@@ -21,13 +21,13 @@ public class Adventurer extends ActionCard {
 		int totalCount = 0;
     	do {
 			card = p.drawCard();
-			if (!(card instanceof TreasureCard)) {
+			if (!(card.getTypes().contains(CardType.Treasure))) {
 				p.addToDiscard(card);
 			} else {
 				p.addToHand(card);
 				treasureCount++;
 			}
 			totalCount++;
-		} while ((treasureCount < 2) || (totalCount < p.deckWithoutInPlay().size()));
+		} while ((treasureCount < 2) && (totalCount < p.deckWithoutInPlay().size()));
     }
 }
