@@ -41,7 +41,7 @@ class Main {
 		kingdomStacks.add(stack);
 		stack = new CardList();
 		for (int i = 0; i < 10; i++) {
-			stack.add(new Moat());
+			stack.add(new Moat()); // fait
 		}
 		kingdomStacks.add(stack);
 		stack = new CardList();
