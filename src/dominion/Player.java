@@ -613,10 +613,12 @@ public class Player {
 	 				choices.add(c);
 	 			}
 	 		}
-	 		String input = chooseCard("Choose an Action card.", choices, true);
-	 		if (input != "") {
+	 		String input = chooseCard("Choisissez une carte action.", choices, true);
+	 		if (!input.equals("")) {
 				actions--;
 				playCard(input);
+			} else {
+	 			actions = 0;
 			}
 		}
 		for (Card c: hand) { // 3. Trésor
@@ -625,7 +627,7 @@ public class Player {
 			}
 		}
 		while (buys > 0) { // 4. Achat
-			String input = chooseCard("Choose a cardname.", game.availableSupplyCards(), true);
+			String input = chooseCard("Achetez une carte.", game.availableSupplyCards(), true);
 			if (!input.equals("")) {
 				buyCard(input);
 			}
