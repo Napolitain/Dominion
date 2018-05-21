@@ -169,6 +169,7 @@ public class Player {
 	 */
 	public CardList cardsInHand() {
 		CardList result = new CardList(hand);
+		System.out.println(hand.toString() + "\n" + result.toString());
 		return result;
 	}
 	
@@ -642,10 +643,5 @@ public class Player {
 	public void discardDeck() {
 		discard.addAll(draw);
 		draw.clear();
-	}
-
-	/**
-	public void addToTrash(Card c) {
-		game.trash(c);
 	}
 }

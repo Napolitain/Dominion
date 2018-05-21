@@ -55,7 +55,6 @@ public class Game {
 		supplyStacks = new ArrayList<CardList>();
 		scanner = new Scanner(System.in);
 		this.players = new Player[playerNames.length];
-		trashedCards = new CardList();
 		for (int i = 0; i < playerNames.length; i++) {
 			this.players[i] = new Player(playerNames[i], this);
 		}
@@ -291,13 +290,5 @@ public class Game {
 	 */
 	public String readLine() {
 		return this.scanner.nextLine();
-	}
-
-	/**
-	 * Met une carte dans la trash
-	 * @param c
-	 */
-	public void trash(Card c) {
-		trashedCards.add(c);
 	}
 }
