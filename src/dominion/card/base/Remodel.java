@@ -19,13 +19,13 @@ public class Remodel extends ActionCard {
 	public void play(Player p) {
 		String input = p.chooseCard("Écartez une carte de votre main.", p.cardsInHand(), false);
 		Card card = p.removeFromHand(input); // (avec int cost = p.cardsInHands().remove(input).getCost() on pourrait avoir un NullPointerException)
-		CardList availableCardsPlusTwo = p.getGame().availableSupplyCards();
+		CardList availableCardsPlusTwo = new CardList();
 		for (Card c: p.getGame().availableSupplyCards()) {
 			if (c.getCost() <= card.getCost() + 2) {
 				availableCardsPlusTwo.add(c);
 			}
 		}
 		input = p.chooseCard("Recevez une carte coûtant jusqu'à 2 pièces de plus que la carte écartée.", availableCardsPlusTwo, false);
-		p.addToHand(p.getGame().removeFromSupply(input)); // reçoit une carte de la réserve
+		p.gain(p.getGame().removeFromSupply(input)); // reçoit une carte de la réserve
 	}
 }
