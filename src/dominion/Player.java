@@ -357,12 +357,8 @@ public class Player {
 	 * fait rien.
 	 */
 	public void playCard(String cardName) {
-		int i = 0;
-		while (i < hand.size() && hand.get(i).getName() != cardName) {
-			i++;
-		}
-		if (i <= hand.size()) {
-			playCard(hand.get(i));
+		if (hand.getCard(cardName) != null) {
+			playCard(hand.getCard(cardName)); // on joue grâce a getCard qui retourne une Card
 		}
 	}
 	
