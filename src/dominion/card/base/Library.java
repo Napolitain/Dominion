@@ -16,7 +16,7 @@ public class Library extends ActionCard {
 
 	@Override
 	public void play(Player p) {
-		CardList actionCards = new CardList();
+		/*CardList actionCards = new CardList();
 		Card c;
 		String input;
 		List<String> choices = Arrays.asList("o", "n");
@@ -33,6 +33,6 @@ public class Library extends ActionCard {
 		}
 		for (c: actionCards) {
 			input = p.choose("Voulez vous défausser")
-		}
+		}*/
 	}
 }
