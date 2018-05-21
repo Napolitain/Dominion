@@ -139,30 +139,6 @@ public class Player {
 	}
 
 	/**
-	 * Enlève la carte de la main et la rajoute dans la défausse.
-	 *
-	 * @param card carte à défausser
-	 */
-	public void addToDiscard(Card card) {
-		hand.remove(card);
-		discard.add(card);
-	}
-
-	/**
-	 * On cherche la carte dont le nom est cardName, et on appelle addToDiscard(Card c) pour défausser.
-	 *
-	 * @param cardName nom de la carte à défausser
-	 */
-	public void addToDiscard(String cardName) {
-		for (Card c: hand) {
-			if (c.getName() == cardName) {
-				addToDiscard(c); // défausse
-				return; // return void
-			}
-		}
-	}
-
-	/**
 	 * Renvoie une liste des cartes que le joueur a en main.
 	 * La liste renvoyée doit être une nouvelle {@code CardList} dont les 
 	 * éléments sont les mêmes que ceux de {@code this.hand}.
@@ -247,22 +223,6 @@ public class Player {
 			discard.clear();
 		}
 		return draw.remove(0); // on retourne la carte piochée
-	}
-
-	/**
-	 * Ajoute une carte à hand.
-	 * @param c carte à ajouter.
-	 */
-	public void addToHand(Card c) {
-		hand.add(c);
-	}
-
-	/**
-	 * Ajoute une CardList à hand.
-	 * @param l CardList à ajouter.
-	 */
-	public void addToHand(CardList l) {
-		hand.addAll(l);
 	}
 	
 	/**
@@ -627,6 +587,54 @@ public class Player {
 			}
 		} while (buys > 0 && !input.equals(""));
 		endTurn(); // 5. Fin
+	}
+
+	/**
+	 * Ajoute une carte à hand.
+	 * @param c carte à ajouter.
+	 */
+	public void addToHand(Card c) {
+		hand.add(c);
+	}
+
+	/**
+	 * Ajoute une CardList à hand.
+	 * @param l CardList à ajouter.
+	 */
+	public void addToHand(CardList l) {
+		hand.addAll(l);
+	}
+
+	/**
+	 * Enlève la carte de la main et la rajoute dans la défausse.
+	 *
+	 * @param card carte à défausser
+	 */
+	public void addToDiscard(Card card) {
+		hand.remove(card);
+		discard.add(card);
+	}
+
+	/**
+	 * On cherche la carte dont le nom est cardName, et on appelle addToDiscard(Card c) pour défausser.
+	 *
+	 * @param cardName nom de la carte à défausser
+	 */
+	public void addToDiscard(String cardName) {
+		for (Card c: hand) {
+			if (c.getName() == cardName) {
+				addToDiscard(c); // défausse
+				return; // return void
+			}
+		}
+	}
+
+	/**
+	 * Rajoute dans sur le dessus de la pioche
+	 * @param c carte à rajouter sur le dessus de la pioche
+	 */
+	public void addToDraw(Card c) {
+		draw.add(0, c);
 	}
 
 	/**

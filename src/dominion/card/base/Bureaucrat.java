@@ -21,7 +21,7 @@ public class Bureaucrat extends AttackCard {
 			System.err.println("Il n'y a pas de carte Silver.");
 			return;
 		}
-        p.addToHand(p.getGame().removeFromSupply("Silver"));
+        p.addToDraw(p.getGame().removeFromSupply("Silver"));
 
     	for (Player a: p.otherPlayers()) { // a est un adversaire
         	if (!playerReact(a)) {
