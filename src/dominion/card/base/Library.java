@@ -33,6 +33,7 @@ public class Library extends ActionCard {
                     p.cardsInHand().remove(c);
                 }
             }
+            actionList.remove(c);
 
         }
 
