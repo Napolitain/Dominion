@@ -18,7 +18,7 @@ public class Remodel extends ActionCard {
 	@Override
 	public void play(Player p) {
 		String input = p.chooseCard("Écartez une carte de votre main.", p.cardsInHand(), false);
-		Card card = p.cardsInHand().remove(input); // (avec int cost = p.cardsInHands().remove(input).getCost() on pourrait avoir un NullPointerException)
+		Card card = p.removeFromHand(input); // (avec int cost = p.cardsInHands().remove(input).getCost() on pourrait avoir un NullPointerException)
 		CardList availableCardsPlusTwo = p.getGame().availableSupplyCards();
 		for (Card c: p.getGame().availableSupplyCards()) {
 			if (c.getCost() <= card.getCost() + 2) {

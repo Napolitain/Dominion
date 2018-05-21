@@ -20,7 +20,7 @@ public class Chapel extends ActionCard {
 		int i = 0;
 		do {
 			input = p.chooseCard("Écartez jusqu'à 4 cartes de votre main.", p.cardsInHand(), true);
-			p.cardsInHand().remove(input); // on a choisi de ne pas mettre les cartes dans trashedCards car elles ne serviront plus; donc on laisse explicitement le garbage collector s'en occuper (solution acceptée)
+			p.removeFromHand(input); // on a choisi de ne pas mettre les cartes dans trashedCards car elles ne serviront plus; donc on laisse explicitement le garbage collector s'en occuper (solution acceptée)
 			i++;
 		} while (!input.equals("") && i < 4);
 	}

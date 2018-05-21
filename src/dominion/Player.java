@@ -169,7 +169,6 @@ public class Player {
 	 */
 	public CardList cardsInHand() {
 		CardList result = new CardList(hand);
-		System.out.println(hand.toString() + "\n" + result.toString());
 		return result;
 	}
 	
@@ -643,5 +642,21 @@ public class Player {
 	public void discardDeck() {
 		discard.addAll(draw);
 		draw.clear();
+	}
+
+	/**
+	 * On supprime la carte c
+	 * @param c une carte à supprimer
+	 */
+	public Card removeFromHand(Card c) {
+		return removeFromHand(c.getName());
+	}
+
+	/**
+	 * On supprime la carte du nom de cardname
+	 * @param cardName nom de la carte à supprimer
+	 */
+	public Card removeFromHand(String cardName) {
+		return hand.remove(cardName);
 	}
 }

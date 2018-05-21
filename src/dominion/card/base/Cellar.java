@@ -25,7 +25,7 @@ public class Cellar extends ActionCard {
 		do {
 			input = p.chooseCard("Défaussez autant de cartes que vous le voulez.", p.cardsInHand(), true);
 			if (!input.equals("")) {
-				Card c = p.cardsInHand().remove(input);
+				Card c = p.removeFromHand(input);
 				p.addToDiscard(c);
 				cards.add(p.drawCard());
 			}

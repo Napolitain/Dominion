@@ -28,7 +28,7 @@ public class Library extends ActionCard {
                 input = p.chooseCard("Voulez vous défausser cette carte ? y/n", choices, false);
                 if (input.equals("o")) {
                     p.addToDiscard(c);
-                    p.cardsInHand().remove(c);
+                    p.removeFromHand(c);
                 }
             }
         }*/

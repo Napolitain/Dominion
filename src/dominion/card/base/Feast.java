@@ -21,7 +21,7 @@ public class Feast extends ActionCard {
 		for (Card c: p.getGame().availableSupplyCards()) {
 			if (c.getName() == input && c.getCost() <= 5) {
 				p.gain(c); // gagne une carte
-				p.cardsInHand().remove(c); // écarte cette carte
+				p.removeFromHand(c); // écarte cette carte
 				return;
 			}
 		}

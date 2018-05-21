@@ -21,7 +21,7 @@ public class Mine extends ActionCard {
 		CardList treasureCardPlusThree = new CardList();
 		if (p.getTreasureCards().size() > 0) { // si il a au moins 1 carte trésor
 			input = p.chooseCard("Écartez une carte Trésor de votre main.", p.getTreasureCards(), false);
-			card = p.cardsInHand().remove(input); // pas de trashed : même raison que pour Chapel
+			card = p.removeFromHand(input); // pas de trashed : même raison que pour Chapel
 			for (Card c: p.getGame().availableSupplyCards()) {
 				if ((c instanceof TreasureCard) && (c.getCost() <= card.getCost() + 3)) {
 					treasureCardPlusThree.add(c);
