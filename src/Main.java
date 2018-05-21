@@ -69,7 +69,6 @@ class Main {
 			stack.add(new Workshop()); // fait
 		}
 		kingdomStacks.add(stack);
-		System.out.println(kingdomStacks.toString());
 
 		// Instancie et exécute une partie
 		Game g = new Game(playerNames, kingdomStacks);

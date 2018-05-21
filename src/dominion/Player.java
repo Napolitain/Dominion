@@ -162,7 +162,6 @@ public class Player {
 	 */
 	public CardList cardsInHand() {
 		CardList result = new CardList(hand);
-		System.out.println("doit etre !=: " + hand + " " + result);
 		return result;
 	}
 	
