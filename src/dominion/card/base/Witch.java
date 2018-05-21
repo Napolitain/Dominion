@@ -20,7 +20,9 @@ public class Witch extends AttackCard {
 		p.addToHand(p.drawCard());
 		p.addToHand(p.drawCard());
 		for (Player a: p.otherPlayers()) {
-			a.gain("Curse");
+			if (!playerReact(a)) {
+				a.gain(a.getGame().removeFromSupply("Curse"));
+			}
 		}
 	}
 }

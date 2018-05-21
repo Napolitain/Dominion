@@ -32,15 +32,17 @@ public class Spy extends AttackCard {
             c.remove(input); //on l'enlève de la cardlist
         }
         for (Player a : p.otherPlayers()) { // a est un adversaire, même principe qu'au dessus
-            c.add(a.drawCard());
-            String adinput = p.chooseCard("Voulez vous défausser cette carte ? y/n", c, false);
-            if (adinput == "o") {
-                a.addToDiscard(input);
-                c.remove(input);
-            } else {
-                a.getDraw().add(0, c.get(0));
-                c.remove(input);
-            }
+            if (!playerReact(a)) {
+				c.add(a.drawCard());
+				String adinput = p.chooseCard("Voulez vous défausser cette carte ? y/n", c, false);
+				if (adinput == "o") {
+					a.addToDiscard(input);
+					c.remove(input);
+				} else {
+					a.getDraw().add(0, c.get(0));
+					c.remove(input);
+				}
+			}
         }
     }
 }
