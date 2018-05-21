@@ -15,7 +15,7 @@ public class Library extends ActionCard {
     }
 
     public void play(Player p){
-        /*List<String> choices = Arrays.asList("y", "n");
+        List<String> choices = Arrays.asList("y", "n");
         String input;
         while (p.cardsInHand().size() < 7){
             Card c = p.drawCard();
@@ -25,12 +25,12 @@ public class Library extends ActionCard {
             }
             p.addToHand(c);
             if (c instanceof ActionCard) {
-                input = p.chooseCard("Voulez vous défausser cette carte ? y/n", choices, false);
+                input = p.choose("Voulez vous défausser cette carte ? y/n", choices, false);
                 if (input.equals("o")) {
                     p.addToDiscard(c);
                     p.removeFromHand(c);
                 }
             }
-        }*/
+        }
     }
 }
