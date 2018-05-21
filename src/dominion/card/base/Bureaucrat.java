@@ -29,7 +29,7 @@ public class Bureaucrat extends AttackCard {
 				if (victory.isEmpty()) {
 					System.out.println(a.cardsInHand().toString()); // dévoile le jeu entier
 				} else {
-					String input = a.chooseCard("Dévoilez une carte", p.getVictoryCards(), false);
+					String input = a.chooseCard("Dévoilez une carte", a.getVictoryCards(), false);
 					System.out.println(input);
 					a.placeOnDraw(input);
 				}
