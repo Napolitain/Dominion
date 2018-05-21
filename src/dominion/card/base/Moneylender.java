@@ -17,7 +17,7 @@ public class Moneylender extends ActionCard {
 
 	@Override
 	public void play(Player p) {
-		Card c = p.cardsInHand().remove("Copper");
+		Card c = p.removeFromHand("Copper");
 		if (c != null) {
 			p.incrementMoney(3);
 		}
