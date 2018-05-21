@@ -29,7 +29,7 @@ public class Cellar extends ActionCard {
 				p.addToDiscard(c);
 				cards.add(p.drawCard());
 			}
-		} while (input.equals(""));
+		} while (!input.equals("") && !p.cardsInHand().isEmpty()); // tant que ya une input et des cartes en main
 		p.addToHand(cards); // on a rajouté une méthode qui prend en compte les cardlist
 	}
 }
