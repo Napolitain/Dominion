@@ -662,14 +662,28 @@ public class Player {
 		return hand.remove(cardName);
 	}
 
+	/**
+	 * On supprime du jeu
+	 * @param c carte à supprimer
+	 * @return une carte
+	 */
 	public Card removeFromInPlay(Card c) {
 		return removeFromInPlay(c.getName());
 	}
 
+	/**
+	 * On supprime du jeu grace au nom
+	 * @param cardName nom de la carte à supprimer
+	 * @return une carte
+	 */
 	public Card removeFromInPlay(String cardName) {
 		return inPlay.remove(cardName);
 	}
 
+	/**
+	 * rajoute sur la pioche différemment de addToDraw
+	 * @param cardName nom de la carte à rajouter
+	 */
 	public void placeOnDraw(String cardName) {
 		Card c = removeFromHand(cardName);
 		draw.add(0, c);
