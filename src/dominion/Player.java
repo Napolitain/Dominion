@@ -634,4 +634,13 @@ public class Player {
 		}
 		endTurn(); // 5. Fin
 	}
+
+	/**
+	 * On met le "deck" dans la défausse
+	 * & Normalement on défausse le deck pas la pioche (mais on fait par rapport au test)
+	 */
+	public void discardDeck() {
+		discard.addAll(draw);
+		draw.clear();
+	}
 }
